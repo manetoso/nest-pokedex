@@ -12,6 +12,11 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true, // REQUIRES WHITELISTED VALUES
       forbidNonWhitelisted: true, // REJECT NON WHITELISTED VALUES
+      // TRANSFORM QUERY-PARAMS FROM STRING TO DESIRE VALUE
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true,
+      },
     }),
   );
   await app.listen(3000);
